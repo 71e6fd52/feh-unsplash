@@ -1,0 +1,6 @@
+[Unit]
+Description=Auto set background image by feh form unsplash
+
+[Service]
+Type=oneshot
+ExecStart=/bin/zsh -c "feh --bg-scale $(curl https://api.unsplash.com/photos/random -H 'Authorization: Client-ID 2e9fc6ab6edd4e0b86bab95c932a5e20a7e6ef0866a6c0511d09d72105680bfc' | jq .urls.full -r)"
